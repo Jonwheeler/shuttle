@@ -100,11 +100,13 @@ module Shuttle
       end
 
       log "Using branch '#{branch}'"
-      #result = ssh.run("cd #{scm_path} && git checkout -m #{branch}")
+=begin
+      result = ssh.run("cd #{scm_path} && git checkout -m #{branch}")
 
       if result.failure?
         error "Failed to checkout #{branch}: #{result.output}"
       end
+=end
 
       if ssh.file_exists?("#{scm_path}/.gitmodules")
         log "Updating git submodules"
