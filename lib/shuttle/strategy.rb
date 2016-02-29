@@ -96,11 +96,11 @@ module Shuttle
 
       # Make sure to pull changes from current non-master branch
       if branch != 'master'
-        ssh.run("cd #{scm_path} && git pull origin #{branch}")
+        ssh.run("cd #{scm_path} && git fetch origin #{branch}")
       end
 
       log "Using branch '#{branch}'"
-      result = ssh.run("cd #{scm_path} && git checkout -m #{branch}")
+      #result = ssh.run("cd #{scm_path} && git checkout -m #{branch}")
 
       if result.failure?
         error "Failed to checkout #{branch}: #{result.output}"
